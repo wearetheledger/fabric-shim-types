@@ -181,76 +181,8 @@ declare module 'fabric-shim' {
 
 
     export namespace Iterators {
-        class EventEmitter {
-            static listenerCount(emitter: EventEmitter, event: string | symbol): number; // deprecated
-            static defaultMaxListeners: number;
-
-            addListener(type: any, listener: any): any;
-
-            emit(type: any, ...args: any[]): any;
-
-            eventNames(): any;
-
-            getMaxListeners(): any;
-
-            listenerCount(type: any): any;
-
-            listeners(type: any): any;
-
-            on(type: any, listener: any): any;
-
-            once(type: any, listener: any): any;
-
-            prependListener(type: any, listener: any): any;
-
-            prependOnceListener(type: any, listener: any): any;
-
-            removeAllListeners(type: any, ...args: any[]): any;
-
-            removeListener(type: any, listener: any): any;
-
-            setMaxListeners(n: any): any;
-        }
-
-        interface Iterator extends EventEmitter {
-            defaultMaxListeners: number;
-            usingDomains: boolean;
-
-            init(): void;
-
-            listenerCount(emitter: any, type: any): any;
-
-            addListener(type: any, listener: any): any;
-
-            close(): void;
-
-            emit(type: any, ...args: any[]): any;
-
-            eventNames(): any;
-
-            getMaxListeners(): any;
-
-            listenerCount(type: any): any;
-
-            listeners(type: any): any;
-
-            on(type: any, listener: any): any;
-
-            once(type: any, listener: any): any;
-
-            prependListener(type: any, listener: any): any;
-
-            prependOnceListener(type: any, listener: any): any;
-
-            removeAllListeners(type: any, ...args: any[]): any;
-
-            removeListener(type: any, listener: any): any;
-
-            setMaxListeners(n: any): any;
-
-            next(): any;
-        }
-        interface Iterator extends EventEmitter {
+        
+        interface Iterator {
             close(): void;
 
             next(): Promise<any>;
