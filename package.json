@@ -1,13 +1,12 @@
 {
-  "name": "fabric-shim",
+  "name": "@theledger/fabric-shim",
   "version": "1.0.0",
-  "description": "",
+  "description": "Types for the fabric-shim package",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "TheLedger <https://github.com/wearetheledger>",
+  "license": "MIT",
   "dependencies": {
     "@types/google-protobuf": "^3.2.7",
     "@types/log4js": "^2.3.5"
