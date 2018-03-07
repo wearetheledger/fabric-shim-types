@@ -1,6 +1,6 @@
 {
-  "name": "@theledger/fabric-shim-types",
-  "version": "1.0.1",
+  "name": "@theledger/fabric-shim",
+  "version": "1.0.2",
   "description": "Types for the fabric-shim package",
   "main": "",
   "scripts": {
