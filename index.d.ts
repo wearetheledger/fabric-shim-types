@@ -1,4 +1,4 @@
-// Type definitions for fabric-shim 1.1.0-alpha
+// Type definitions for fabric-shim 1.1.0
 // Project: https://github.com/hyperledger/fabric-chaincode-node
 // Definitions by: TheLedger <https://github.com/wearetheledgerr>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -181,7 +181,7 @@ declare module 'fabric-shim' {
 
 
     export namespace Iterators {
-        
+
         interface Iterator {
             close(): void;
 
@@ -189,7 +189,7 @@ declare module 'fabric-shim' {
         }
 
         interface HistoryQueryIterator extends Iterator {
-            next(): Promise<KV>;
+            next(): Promise<NextKeyModificationResult>;
         }
 
         interface StateQueryIterator extends Iterator {
@@ -200,6 +200,11 @@ declare module 'fabric-shim' {
 
     interface NextResult {
         value: KV,
+        done: boolean
+    }
+
+    interface NextKeyModificationResult {
+        value: KeyModification,
         done: boolean
     }
 
@@ -236,5 +241,12 @@ declare module 'fabric-shim' {
     interface KV {
         key: string;
         value: any;
+    }
+
+    interface KeyModification {
+        is_delete: boolean;
+        value: Buffer;
+        timestamp: Timestamp;
+        tx_id: string;
     }
 }
