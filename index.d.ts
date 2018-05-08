@@ -27,6 +27,8 @@ declare module 'fabric-shim' {
     }
 
     export class ClientIdentity {
+        attrs: string[];
+        
         constructor(stub: Stub);
 
         assertAttributeValue(attrName: string, attrValue: string): boolean;
