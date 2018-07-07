@@ -7,6 +7,8 @@
 
 /* tslint:disable */
 
+import { collection, Iterators } from "fabric-shim";
+
 declare module 'fabric-shim' {
 
     import { Logger } from 'log4js';
@@ -28,7 +30,7 @@ declare module 'fabric-shim' {
 
     export class ClientIdentity {
         attrs: string[];
-        
+
         constructor(stub: Stub);
 
         assertAttributeValue(attrName: string, attrValue: string): boolean;
@@ -116,6 +118,8 @@ declare module 'fabric-shim' {
         setTxTimestamp(timestamp: Timestamp): void;
     }
 
+    type collection = string;
+
     export class Stub {
         constructor(client: any, channel_id: any, txId: any, chaincodeInput: any, signedProposal: any);
 
@@ -141,6 +145,18 @@ declare module 'fabric-shim' {
 
         getState(key: string): Promise<Buffer>;
 
+        getPrivateData(collection: collection, key: string): Promise<Buffer>;
+
+        putPrivateData(collection: collection, key: string, value: Buffer): Promise<any>; // TODO promise contains what?????
+
+        deletePrivateData(collection: collection, key: string): Promise<any>; // TODO promise contains what?????
+
+        getPrivateDataByRange(collection: collection, startKey: string, endKey: string): Promise<Iterators.StateQueryIterator>;
+
+        getPrivateDataByPartialCompositeKey(collection: collection, objectType: string, attributes: string[]): Promise<Iterators.StateQueryIterator>;
+
+        getPrivateDataQueryResult(collection: collection, query: string): Promise<Iterators.StateQueryIterator>;
+
         getStateByPartialCompositeKey(objectType: string, attributes: string[]): Promise<Iterators.StateQueryIterator>;
 
         getStateByRange(startKey: string, endKey: string): Promise<Iterators.StateQueryIterator>;
@@ -156,6 +172,7 @@ declare module 'fabric-shim' {
         invokeChaincode(chaincodeName: string, args: Buffer[], channel: string): Promise<ChaincodeReponse>;
 
         putState(key: string, value: Buffer): Promise<any>; // TODO promise contains what?????
+
         setEvent(name: string, payload: Buffer): void;
 
         splitCompositeKey(compositeKey: string): SplitCompositekey;
@@ -179,7 +196,6 @@ declare module 'fabric-shim' {
 
         Invoke(stub: Stub): Promise<ChaincodeReponse>
     }
-
 
 
     export namespace Iterators {
