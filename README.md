@@ -2,7 +2,7 @@
 ## Version matching
 | Fabric        | Shim types    |
 | ------------- |:-------------:|
-| v1.2.X     | v2.0.0 |
+| v1.2.X     | v2.0.6 |
 | V1.1.X     | v1.0.6     |
 
 ## How to add this type to your project
