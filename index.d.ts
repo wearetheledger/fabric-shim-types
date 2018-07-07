@@ -1,22 +1,20 @@
-// Type definitions for fabric-shim 1.1.0
+// Type definitions for fabric-shim 1.2.0
 // Project: https://github.com/hyperledger/fabric-chaincode-node
-// Definitions by: TheLedger <https://github.com/wearetheledgerr>
+// Definitions by: TheLedger <https://github.com/wearetheledger>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /// <reference types="node" />
 
 /* tslint:disable */
 
-import { collection, Iterators } from "fabric-shim";
-
 declare module 'fabric-shim' {
 
-    import { Logger } from 'log4js';
+    import { LoggerInstance } from 'winston';
     import { Timestamp } from 'google-protobuf/google/protobuf/timestamp_pb';
 
     export function error(...args: any[]): ErrorResponse;
 
-    export function newLogger(name: string): Logger;
+    export function newLogger(name: string): LoggerInstance;
 
     export function start(chaincode: ChaincodeInterface): any;
 
