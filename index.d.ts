@@ -20,10 +20,10 @@ declare module 'fabric-shim' {
 
     export function success(payload?: Buffer): SuccessResponse;
 
-    interface SuccessResponse extends ChaincodeReponse {
+    interface SuccessResponse extends ChaincodeResponse {
     }
 
-    interface ErrorResponse extends ChaincodeReponse {
+    interface ErrorResponse extends ChaincodeResponse {
     }
 
     export class ClientIdentity {
@@ -92,7 +92,7 @@ declare module 'fabric-shim' {
         CHAINCODE_PACKAGE,
     }
 
-    type ChaincodeReponse = {
+    type ChaincodeResponse = {
         status: number;
         message: string;
         payload: Buffer;
@@ -103,13 +103,13 @@ declare module 'fabric-shim' {
 
         mockTransactionEnd(uuid: string): void
 
-        mockInit(uuid: string, args: string[]): Promise<ChaincodeReponse>
+        mockInit(uuid: string, args: string[]): Promise<ChaincodeResponse>
 
-        mockInvoke(uuid: string, args: string[]): Promise<ChaincodeReponse>
+        mockInvoke(uuid: string, args: string[]): Promise<ChaincodeResponse>
 
         mockPeerChaincode(invokableChaincodeName: string, otherStub: MockStub): void
 
-        mockInvokeWithSignedProposal(uuid: string, args: string[], sp: SignedProposal): Promise<ChaincodeReponse>
+        mockInvokeWithSignedProposal(uuid: string, args: string[], sp: SignedProposal): Promise<ChaincodeResponse>
 
         setSignedProposal(sp: SignedProposal): void
 
@@ -167,7 +167,7 @@ declare module 'fabric-shim' {
 
         getTxTimestamp(): Timestamp;
 
-        invokeChaincode(chaincodeName: string, args: Buffer[], channel: string): Promise<ChaincodeReponse>;
+        invokeChaincode(chaincodeName: string, args: Buffer[], channel: string): Promise<ChaincodeResponse>;
 
         putState(key: string, value: Buffer): Promise<any>; // TODO promise contains what?????
 
@@ -190,9 +190,9 @@ declare module 'fabric-shim' {
 
 
     interface ChaincodeInterface {
-        Init(stub: Stub): Promise<ChaincodeReponse>
+        Init(stub: Stub): Promise<ChaincodeResponse>
 
-        Invoke(stub: Stub): Promise<ChaincodeReponse>
+        Invoke(stub: Stub): Promise<ChaincodeResponse>
     }
 
 

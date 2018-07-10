@@ -1,12 +1,12 @@
 import * as shim from 'fabric-shim';
-import { ChaincodeInterface, ChaincodeReponse, Stub } from 'fabric-shim';
+import { ChaincodeInterface, ChaincodeResponse, Stub } from 'fabric-shim';
 
 class CC implements ChaincodeInterface {
-    Init(stub: Stub): Promise<ChaincodeReponse> {
+    Init(stub: Stub): Promise<ChaincodeResponse> {
         throw new Error('Not implemented');
     }
 
-    Invoke(stub: Stub): Promise<ChaincodeReponse> {
+    Invoke(stub: Stub): Promise<ChaincodeResponse> {
         throw new Error('Not implemented');
     }
 }
