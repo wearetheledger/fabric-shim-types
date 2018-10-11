@@ -1,4 +1,6 @@
-# fabric-shim-types
+# This package isn't needed anymore as of 1.3 since fabric-shim includes types 
+
+
 ## Version matching
 | Fabric        | Shim types    |
 | ------------- |:-------------:|
